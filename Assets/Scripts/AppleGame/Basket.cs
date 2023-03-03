@@ -9,14 +9,18 @@ public class Basket : MonoBehaviour
 
     private float _currentWidth;
 
+    private bool _stop;
+
     private void OnEnable()
     {
+        ScoreManager.win += Stop;
         _rigidbody = GetComponent<Rigidbody2D>();
         _currentWidth = Screen.currentResolution.width;
     }
 
     private void Update()
     {
+        if (_stop) return;
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
@@ -32,5 +36,10 @@ public class Basket : MonoBehaviour
         {
             _rigidbody.velocity = Vector2.zero;
         }
+    }
+    
+    private void Stop()
+    {
+        _stop = true;
     }
 }
