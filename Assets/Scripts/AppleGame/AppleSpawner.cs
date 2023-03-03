@@ -10,8 +10,9 @@ public class AppleSpawner : MonoBehaviour
         [SerializeField] public GameObject apple;
         [SerializeField] public int count;
     }
-    
-    [SerializeField] private float minSpawnPosition, maxSpawnPosition, heightSpawnPosition;
+
+    [SerializeField] private float percentageToSaveZone;
+    private float minSpawnPosition, maxSpawnPosition, heightSpawnPosition;
 
     [SerializeField] private Apple[] applesSetup;
     private GameObject[] _apples;
@@ -21,7 +22,20 @@ public class AppleSpawner : MonoBehaviour
 
     private void OnEnable()
     {
+        percentageToSaveZone /= 100f;
         SetupApples();
+        if (Camera.main != null)
+        {
+            var mainCamera = Camera.main;
+            Vector3 widthHeight = new Vector3(mainCamera.pixelWidth, mainCamera.pixelHeight, 0);
+            var maxWidth = Camera.main.ScreenToWorldPoint(widthHeight).x;
+            var minWidth = Camera.main.ScreenToWorldPoint(new Vector3(0, 0, 0)).x;
+            var maxHeight = Camera.main.ScreenToWorldPoint(widthHeight).y;
+        
+            minSpawnPosition = minWidth + maxWidth * percentageToSaveZone;
+            maxSpawnPosition = maxWidth * (1 - percentageToSaveZone);
+            heightSpawnPosition = maxHeight * (1 + 2 * percentageToSaveZone);
+        }
     }
 
     private void FixedUpdate()
