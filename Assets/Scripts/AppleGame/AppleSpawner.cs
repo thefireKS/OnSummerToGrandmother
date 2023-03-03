@@ -19,9 +19,12 @@ public class AppleSpawner : MonoBehaviour
 
     [SerializeField] private float spawnTimer;
     private float _timer;
+    private bool _stop;
 
     private void OnEnable()
     {
+        ScoreManager.win += Stop;
+        
         percentageToSaveZone /= 100f;
         SetupApples();
         if (Camera.main != null)
@@ -40,7 +43,7 @@ public class AppleSpawner : MonoBehaviour
 
     private void FixedUpdate()
     {
-        _timer += Time.fixedDeltaTime;
+        if(!_stop) _timer += Time.fixedDeltaTime;
         if(_timer >= spawnTimer) Spawn();
     }
 
@@ -63,5 +66,10 @@ public class AppleSpawner : MonoBehaviour
         GameObject appleToSpawn = _apples[Random.Range(0, _apples.Length)];
         Instantiate(appleToSpawn, spawnPosition, Quaternion.identity);
         _timer = 0;
+    }
+
+    private void Stop()
+    {
+        _stop = true;
     }
 }

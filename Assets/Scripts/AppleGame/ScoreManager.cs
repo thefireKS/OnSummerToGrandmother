@@ -1,8 +1,11 @@
+using System;
 using TMPro;
 using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+    public static Action win;
+
     [SerializeField] private int goalScore;
     private int _currentScore;
 
@@ -29,7 +32,7 @@ public class ScoreManager : MonoBehaviour
 
     private void Win()
     {
-        Time.timeScale = 0f;
+        win?.Invoke();
         winScreen.SetActive(true);
     }
 }

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Garden.unity
+    guid: 5904ff278ca895b4bb3db00fb00cdd38
+  - enabled: 1
     path: Assets/Scenes/CatcheApplesGame.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/CurrantGame.unity
+    guid: b0985631c57e0c34992361374d249169
+  - enabled: 1
+    path: Assets/Scenes/MintGame.unity
+    guid: f36a5936b9ae81d488d1e9ae71207280
   m_configObjects: {}
