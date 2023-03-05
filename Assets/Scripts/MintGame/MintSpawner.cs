@@ -30,11 +30,12 @@ public class MintSpawner : MonoBehaviour
     
     private void Spawn()
     {
+        float coefficient = (maxWidthPosition - minWidthPosition) / (mintCount-1);
         for (int i = 0; i < mintCount; i++)
         {
-            Vector3 spawnPosition = new Vector3(Random.Range(minWidthPosition, maxWidthPosition), HeightPosition, 0);
-            GameObject currantToSpawn = mints[Random.Range(0, mints.Length)];
-            Instantiate(currantToSpawn, spawnPosition, Quaternion.identity);
+            Vector3 spawnPosition = new Vector3(minWidthPosition + i * coefficient, HeightPosition, 0);
+            GameObject mintToSpawn = mints[Random.Range(0, mints.Length)];
+            Instantiate(mintToSpawn, spawnPosition, Quaternion.identity);
         }
     }
 }

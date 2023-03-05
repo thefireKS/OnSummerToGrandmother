@@ -9,6 +9,11 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private int goalScore;
     private int _currentScore;
 
+    [Space(5)]
+    [SerializeField] private GameObject scoreMessage;
+    [SerializeField] private Transform scoreMessagePosition;
+
+    [Space(5)]
     [SerializeField] private GameObject winScreen;
     
     [SerializeField] private TextMeshProUGUI scoreCounter;
@@ -21,7 +26,21 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int score)
     {
         _currentScore += score;
+
+        var scrMsg = Instantiate(scoreMessage, scoreMessagePosition.position, Quaternion.identity);
+        scrMsg.GetComponent<ScoreMessage>().messageText.text = SetMessage(score);
+        
         UpdateScore();
+    }
+
+    private string SetMessage(int score)
+    {
+        string scoreText;
+        if (score > 0)
+            scoreText = "+" + score;
+        else
+            scoreText = score.ToString();
+        return scoreText;
     }
 
     private void UpdateScore()

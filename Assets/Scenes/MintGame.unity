@@ -508,7 +508,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2c9649d40cc3ef4a8be7949d94277be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  percentageToSaveZone: 10
+  percentageToSaveZone: 25
   mints:
   - {fileID: 3805549203743545748, guid: bc3780dd9be9ad547887deeaad1c1b2d, type: 3}
   - {fileID: 1781470775356050546, guid: 9b5f27e4008cc6e4aa40e334b93f1c21, type: 3}
@@ -543,7 +543,7 @@ Transform:
   m_Children:
   - {fileID: 884291209}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1011495921
 GameObject:
@@ -590,7 +590,7 @@ Transform:
   m_Children:
   - {fileID: 33564707}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157088981
 GameObject:
