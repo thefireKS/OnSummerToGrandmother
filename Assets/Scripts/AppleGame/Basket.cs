@@ -7,7 +7,7 @@ public class Basket : MonoBehaviour
     [SerializeField] private float speed;
     private Vector2 _move;
 
-    private float _currentWidth;
+    private Camera _camera;
 
     private bool _stop;
 
@@ -15,7 +15,7 @@ public class Basket : MonoBehaviour
     {
         ScoreManager.win += Stop;
         _rigidbody = GetComponent<Rigidbody2D>();
-        _currentWidth = Screen.currentResolution.width;
+        _camera = Camera.main;
     }
 
     private void Update()
@@ -30,9 +30,11 @@ public class Basket : MonoBehaviour
 
     private void Movement(Touch touch)
     {
+        Vector3 positionBasket = transform.position;
+        positionBasket = _camera.WorldToScreenPoint(positionBasket);
         float xPosition = touch.position.x;
-        _rigidbody.velocity = xPosition < _currentWidth / 2 ? new Vector2(-speed, 0) : new Vector2(speed, 0);
-        if (touch.phase == TouchPhase.Ended)
+        _rigidbody.velocity = xPosition < positionBasket.x ? new Vector2(-speed, 0) : new Vector2(speed, 0);
+        if (touch.phase == TouchPhase.Ended || Mathf.Abs(xPosition - positionBasket.x) < 10f)
         {
             _rigidbody.velocity = Vector2.zero;
         }
