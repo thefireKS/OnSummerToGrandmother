@@ -24,6 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MintGame.unity
     guid: f36a5936b9ae81d488d1e9ae71207280
   - enabled: 1
-    path: Assets/Scenes/House.unity
-    guid: ccedfe546ef25f447ae2074c66a1d9a9
+    path: Assets/Scenes/TeaGame.unity
+    guid: fde0974a15439944ea19953a72e0eafa
   m_configObjects: {}
