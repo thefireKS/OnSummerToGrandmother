@@ -19,16 +19,7 @@ public class SwapRoles : MonoBehaviour
 
     public void ChangePriorities()
     {
-        if (guest.sortingOrder == 3) {
-            guest.sortingOrder = 1;
-            guestImage.color = disabledColor;
-            ale.sortingOrder = 3;
-            aleImage.color = Color.white;
-        } else {
-            ale.sortingOrder = 1;
-            aleImage.color = disabledColor;
-            guest.sortingOrder = 3;
-            guestImage.color = Color.white;
-        }
+        (guest.sortingOrder, ale.sortingOrder) = (ale.sortingOrder, guest.sortingOrder);
+        (guestImage.color, aleImage.color) = (aleImage.color, guestImage.color);
     }
 }

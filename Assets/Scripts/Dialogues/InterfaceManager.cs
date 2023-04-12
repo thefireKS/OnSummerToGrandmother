@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InterfaceManager : MonoBehaviour
@@ -12,7 +9,7 @@ public class InterfaceManager : MonoBehaviour
     [Space(5)]
     [SerializeField] private GameObject[] disableOnDialogStart;
 
-    private int currentAnswer = 0;
+    private int _currentAnswer;
     private void OnEnable()
     {
         TypewriterEffect.activateQuestion += ActivateAnswerWindow;
@@ -30,8 +27,8 @@ public class InterfaceManager : MonoBehaviour
     {
         DisableAllQuestions();
         DisableDialog();
-        questions[currentAnswer].SetActive(true);
-        currentAnswer++;
+        questions[_currentAnswer].SetActive(true);
+        _currentAnswer++;
     }
 
     private void ActivateTeaMaking()
