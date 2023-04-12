@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: RF Krabler
   m_EditorClassIdentifier: 
-  hashCode: 1216443796
+  hashCode: -1470575339
   material: {fileID: 7455388528371113703}
-  materialHashCode: 1197386676
+  materialHashCode: 2138338709
   m_Version: 1.1.0
   m_SourceFontFileGUID: fd9e3cb0284cb2a449550e86352968d5
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: fd9e3cb0284cb2a449550e86352968d5, type: 3}
@@ -5173,6 +5173,10 @@ MonoBehaviour:
   - m_ElementType: 1
     m_Unicode: 8482
     m_GlyphIndex: 395
+    m_Scale: 1
+  - m_ElementType: 1
+    m_Unicode: 160
+    m_GlyphIndex: 1
     m_Scale: 1
   m_AtlasTextures:
   - {fileID: 9012202149438226479}
