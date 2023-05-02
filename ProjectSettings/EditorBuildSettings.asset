@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5e90e2c873e3e56489e043f66c8ef63d
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: 4f8871d09f6bfd54790a2ee04252bb3c
+  - enabled: 1
     path: Assets/Scenes/Garden.unity
     guid: 5904ff278ca895b4bb3db00fb00cdd38
   - enabled: 1
@@ -17,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MintGame.unity
     guid: f36a5936b9ae81d488d1e9ae71207280
+  - enabled: 1
+    path: Assets/Scenes/TeaGame.unity
+    guid: fde0974a15439944ea19953a72e0eafa
   m_configObjects: {}
