@@ -14,7 +14,6 @@ public class TeaData : ScriptableObject
         black,
         green
     }
-    
 
     public static bool operator ==(TeaData data1, TeaData data2)
     {

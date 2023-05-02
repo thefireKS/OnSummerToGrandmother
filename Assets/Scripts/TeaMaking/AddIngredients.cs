@@ -66,6 +66,9 @@ public class AddIngredients : MonoBehaviour
         playerTea.type = TeaData.TeaType.none;
         playerTea.ingredients.Clear();
         teaPouring.Play("New State");
-        PourTumbler();
+
+        isPouring = false;
+        tap1.SetActive(true);
+        tap2.SetActive(false);
     }
 }
