@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,8 +7,12 @@ public class FruitSpawner : MonoBehaviour
     [SerializeField] private GameObject[] fruits;
 
     [SerializeField] private float timeBetweenSpawn;
-    private float _timer;
+    [SerializeField] private float timeToSpeedUp;
+    [Space(5)] 
+    [SerializeField] private float timeToCutOff;
+    private float _spawnTimer,_speedupTimer;
 
+    [Space(5)]
     [SerializeField] private float percentageToSaveZone;
     private Camera _mainCamera;
 
@@ -20,15 +25,33 @@ public class FruitSpawner : MonoBehaviour
 
         percentageToSaveZone /= 100f;
         
-        _timer += timeBetweenSpawn;
+        _spawnTimer += timeBetweenSpawn;
+    }
+
+    private void OnEnable()
+    {
+        FruitNinjaScoreManager.win += StopSpawning;
+    }
+
+    private void OnDisable()
+    {
+        FruitNinjaScoreManager.win -= StopSpawning;
     }
 
     private void FixedUpdate()
     {
-        _timer += Time.fixedDeltaTime;
-        if (_timer >= timeBetweenSpawn)
+        _spawnTimer += Time.fixedDeltaTime;
+        _speedupTimer += Time.fixedDeltaTime;
+
+        if (_speedupTimer > timeToSpeedUp)
         {
-            _timer = 0;
+            _speedupTimer = 0;
+            timeBetweenSpawn -= timeToCutOff;
+        }
+
+        if (_spawnTimer >= timeBetweenSpawn)
+        {
+            _spawnTimer = 0;
             Spawn();
         }
     }
@@ -53,9 +76,13 @@ public class FruitSpawner : MonoBehaviour
         Quaternion angle = Quaternion.Euler(0, 0, Random.Range(-angleToSpawn, angleToSpawn));
 
         GameObject fruit = Instantiate(fruitToSpawn, spawnPosition, angle);
-        Debug.Log(fruit.transform.rotation);
-        
-        
+
+
         fruit.GetComponent<Rigidbody2D>().AddForce(fruit.transform.up * (spawnForce * Random.Range(0.8f,1.5f)),ForceMode2D.Impulse);
+    }
+
+    private void StopSpawning()
+    {
+        Destroy(gameObject);
     }
 }

@@ -16,9 +16,4 @@ public class VisitedActivitiesManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
-    public void SetSceneVisited(int sceneNumber)
-    {
-        places[sceneNumber] = true;
-    }
 }

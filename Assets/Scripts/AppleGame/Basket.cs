@@ -13,7 +13,7 @@ public class Basket : MonoBehaviour
 
     private void OnEnable()
     {
-        ScoreManager.win += Stop;
+        CatchApplesScoreManager.win += Stop;
         _rigidbody = GetComponent<Rigidbody2D>();
         _camera = Camera.main;
     }

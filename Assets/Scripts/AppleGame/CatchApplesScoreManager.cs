@@ -2,7 +2,7 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class ScoreManager : MonoBehaviour
+public class CatchApplesScoreManager : MonoBehaviour
 {
     public static Action win;
 
@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
     private int _currentScore;
 
     [Space(5)]
-    [SerializeField] private GameObject scoreMessage;
+    [SerializeField] private ScoreMessage scoreMessage;
     [SerializeField] private Transform scoreMessagePosition;
 
     [Space(5)]
@@ -21,14 +21,20 @@ public class ScoreManager : MonoBehaviour
     private void OnEnable()
     {
         UpdateScore();
+        Apple.giveScore += AddScore;
     }
 
-    public void AddScore(int score)
+    private void OnDisable()
+    {
+        Apple.giveScore -= AddScore;
+    }
+
+    private void AddScore(int score)
     {
         _currentScore += score;
 
         var scrMsg = Instantiate(scoreMessage, scoreMessagePosition.position, Quaternion.identity);
-        scrMsg.GetComponent<ScoreMessage>().messageText.text = SetMessage(score);
+        scrMsg.messageText.text = SetMessage(score);
         
         UpdateScore();
     }

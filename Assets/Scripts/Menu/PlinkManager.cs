@@ -7,7 +7,7 @@ public class PlinkManager : MonoBehaviour
     private VisitedActivitiesManager _vam;
     private void Start()
     {
-        _vam = FindObjectOfType<VisitedActivitiesManager>();
+        _vam = VisitedActivitiesManager.instance;
 
         for(int i = 0; i < _vam.places.Count; i++)
         {

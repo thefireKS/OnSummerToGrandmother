@@ -23,7 +23,7 @@ public class AppleSpawner : MonoBehaviour
 
     private void OnEnable()
     {
-        ScoreManager.win += Stop;
+        CatchApplesScoreManager.win += Stop;
         
         percentageToSaveZone /= 100f;
         SetupApples();

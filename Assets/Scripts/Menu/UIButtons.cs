@@ -7,9 +7,4 @@ public class UIButtons : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
     }
-
-    public void SetVisit(int sceneNumber)
-    {
-        FindObjectOfType<VisitedActivitiesManager>().SetSceneVisited(sceneNumber);
-    }
 }

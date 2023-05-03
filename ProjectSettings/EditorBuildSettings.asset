@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TeaGame.unity
     guid: fde0974a15439944ea19953a72e0eafa
+  - enabled: 1
+    path: Assets/Scenes/FruitNinja.unity
+    guid: 9c424542372d053458381256f697886f
   m_configObjects: {}
