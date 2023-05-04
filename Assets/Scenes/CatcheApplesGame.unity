@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   goalScore: 10
-  scoreMessage: {fileID: 7921372661694475236, guid: f7d507f86899f304c817019a7e7ee5a3, type: 3}
+  scoreMessage: {fileID: 7921372661694475237, guid: f7d507f86899f304c817019a7e7ee5a3, type: 3}
   scoreMessagePosition: {fileID: 1319703345}
   winScreen: {fileID: 1951322866}
   scoreCounter: {fileID: 1372537023}
