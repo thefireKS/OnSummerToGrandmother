@@ -18,6 +18,7 @@ public class AddIngredients : MonoBehaviour
     {
         playerTea.type = TeaData.TeaType.none;
         playerTea.ingredients.Clear();
+        LightFire();
     }
 
     public void AddIngredient(string ingredientName)
@@ -38,7 +39,7 @@ public class AddIngredients : MonoBehaviour
 
     public void LightFire()
     {
-        fire.SetActive(!fire.activeSelf);
+        fire.SetActive(true);
     }
 
     public void PourTea()
@@ -70,5 +71,6 @@ public class AddIngredients : MonoBehaviour
         isPouring = false;
         tap1.SetActive(true);
         tap2.SetActive(false);
+        LightFire();
     }
 }
